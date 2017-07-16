@@ -10,6 +10,11 @@ hr {
 .glyphicon {
     color: #00f;
 }
+
+.navbar {
+    margin-bottom: 0px;
+}
+
 /*-- Contact --*/
 .contact {
     margin-bottom: 30px;
