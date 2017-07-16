@@ -1,25 +1,25 @@
-var summary = document.getElementById("summary");
+const summary = document.getElementById("summary");
 summary.setAttribute("style", "background-image: url('" + data.summary.background + "');");
 
-var profileImg = document.createElement("img");
+const profileImg = document.createElement("img");
 profileImg.setAttribute("src", data.summary.profile);
 
-var profile = document.getElementById("profile");
+const profile = document.getElementById("profile");
 profile.append(profileImg);
 
-var nameText = document.createTextNode(data.summary.name);
-var titleText = document.createTextNode(data.summary.title);
-var locationText = document.createTextNode(data.summary.location);
-var phoneText = document.createTextNode(data.summary.phone);
-var emailText = document.createTextNode(data.summary.email);
+const nameText = document.createTextNode(data.summary.name);
+const titleText = document.createTextNode(data.summary.title);
+const locationText = document.createTextNode(data.summary.location);
+const phoneText = document.createTextNode(data.summary.phone);
+const emailText = document.createTextNode(data.summary.email);
 
-var summaryName = document.createElement("h1");
-var summaryTitle = document.createElement("h2");
-var summaryLocation = document.createElement("h2");
-var summaryPhone = document.createElement("h3");
-var summaryEmail = document.createElement("h3");
+const summaryName = document.createElement("h1");
+const summaryTitle = document.createElement("h2");
+const summaryLocation = document.createElement("h2");
+const summaryPhone = document.createElement("h3");
+const summaryEmail = document.createElement("h3");
 
-var about = document.getElementById("about");
+const about = document.getElementById("about");
 
 summaryName.appendChild(nameText);
 summaryTitle.appendChild(titleText);
@@ -34,10 +34,75 @@ about.append(summaryPhone);
 about.append(summaryEmail);
 
 /*-- Skills --*/
-var skillsList = document.getElementById('skills-list');
+const skillsList = document.getElementById("skills-list");
 
-for (var i in data.skills) {
-  var skill = document.createElement("li");
-  skill.innerHTML = data.skills[i];
-  skillsList.append(skill);
+for (let skill of data.skills) {
+  let skillContainer = document.createElement("li");
+  skillContainer.innerHTML = skill;
+  skillsList.append(skillContainer);
+}
+/*-- Experience --*/
+const experienceList = document.getElementById("experience");
+
+for (experience of data.experience) {
+  let entry = document.createElement("div");
+  let row = document.createElement("div");
+  let well = document.createElement("div");
+  let dates = experience.startDate + " - " + experience.endDate;
+  let occupation = document.createElement("h1");
+  occupation.innerHTML = experience.occupation + "<span class='pull-right'><small><em>" + dates + "</em></small></span>";
+  let company = document.createElement("h2");
+  company.innerHTML = experience.company;
+  let hr = document.createElement("hr");
+  let ul = document.createElement("ul");
+  for (responsibility of experience.responsibilities) {
+    let li = document.createElement("li");
+    li.innerHTML = responsibility;
+    ul.append(li);
+  }
+  entry.setAttribute("class", "entry");
+  row.setAttribute("class", "row");
+  well.setAttribute("class", "well");
+  well.append(occupation);
+  well.append(company);
+  well.append(hr);
+  well.append(ul);
+  row.append(well);
+  entry.append(row);
+  experienceList.append(entry);
+  let hr2 = document.createElement("hr");
+  experienceList.append(hr2);
+}
+
+/*-- Education --*/
+const educationList = document.getElementById("education");
+
+for (education of data.education) {
+  let entry = document.createElement("div");
+  let row = document.createElement("div");
+  let well = document.createElement("div");
+  let dates = education.startDate + " - " + education.endDate;
+  let occupation = document.createElement("h1");
+  occupation.innerHTML = education.degree + "<span class='pull-right'><small><em>" + dates + "</em></small></span>";
+  let company = document.createElement("h2");
+  company.innerHTML = education.company;
+  let hr = document.createElement("hr");
+  let ul = document.createElement("ul");
+  for (accomplishment of education.accomplishments) {
+    let li = document.createElement("li");
+    li.innerHTML = accomplishment;
+    ul.append(li);
+  }
+  entry.setAttribute("class", "entry");
+  row.setAttribute("class", "row");
+  well.setAttribute("class", "well");
+  well.append(occupation);
+  well.append(company);
+  well.append(hr);
+  well.append(ul);
+  row.append(well);
+  entry.append(row);
+  educationList.append(entry);
+  let hr2 = document.createElement("hr");
+  educationList.append(hr2);
 }
