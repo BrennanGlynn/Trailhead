@@ -1,4 +1,4 @@
-var data = {
+let data = {
   'summary': {    
     'background': 'http://i.huffpost.com/gen/2877070/images/n-SCRANTON-PA-628x314.jpg',
     'profile': 'https://upload.wikimedia.org/wikipedia/en/d/dc/MichaelScott.png',
@@ -46,4 +46,4 @@ var data = {
         ]
       }
   ]
-}
+};
