@@ -1,8 +1,10 @@
 const summary = document.getElementById("summary");
-summary.setAttribute("style", "background-image: url('" + data.summary.background + "');");
+summary.setAttribute("style", "background-image: url('" + data.summary.background + "')");
+
 
 const profileImg = document.createElement("img");
 profileImg.setAttribute("src", data.summary.profile);
+profileImg.setAttribute("class", "img-responsive");
 
 const profile = document.getElementById("profile");
 profile.append(profileImg);
