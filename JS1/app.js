@@ -84,8 +84,8 @@ for (education of data.education) {
   let dates = education.startDate + " - " + education.endDate;
   let occupation = document.createElement("h1");
   occupation.innerHTML = education.degree + "<span class='pull-right'><small><em>" + dates + "</em></small></span>";
-  let company = document.createElement("h2");
-  company.innerHTML = education.company;
+  let school = document.createElement("h2");
+  school.innerHTML = education.school;
   let hr = document.createElement("hr");
   let ul = document.createElement("ul");
   for (accomplishment of education.accomplishments) {
@@ -97,7 +97,7 @@ for (education of data.education) {
   row.setAttribute("class", "row");
   well.setAttribute("class", "well");
   well.append(occupation);
-  well.append(company);
+  well.append(school);
   well.append(hr);
   well.append(ul);
   row.append(well);
