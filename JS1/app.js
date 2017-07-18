@@ -38,27 +38,31 @@ about.append(summaryEmail);
 /*-- Skills --*/
 const skillsList = document.getElementById("skills-list");
 
-for (let skill of data.skills) {
-  let skillContainer = document.createElement("li");
-  skillContainer.innerHTML = skill;
+for (let s in data.skills) {
+  const skillContainer = document.createElement("li");
+  skillContainer.innerHTML = data.skills[s];
   skillsList.append(skillContainer);
+  if ((s + 1) % 3 === 0) {
+    const brElem = document.createElement("br");
+    skillsList.appendChild(brElem);
+  }
 }
 /*-- Experience --*/
 const experienceList = document.getElementById("experience");
 
-for (experience of data.experience) {
-  let entry = document.createElement("div");
-  let row = document.createElement("div");
-  let well = document.createElement("div");
-  let dates = experience.startDate + " - " + experience.endDate;
-  let occupation = document.createElement("h1");
+for (let experience of data.experience) {
+  const entry = document.createElement("div");
+  const row = document.createElement("div");
+  const well = document.createElement("div");
+  const dates = experience.startDate + " - " + experience.endDate;
+  const occupation = document.createElement("h1");
   occupation.innerHTML = experience.occupation + "<span class='pull-right'><small><em>" + dates + "</em></small></span>";
-  let company = document.createElement("h2");
+  const company = document.createElement("h2");
   company.innerHTML = experience.company;
-  let hr = document.createElement("hr");
-  let ul = document.createElement("ul");
-  for (responsibility of experience.responsibilities) {
-    let li = document.createElement("li");
+  const hr = document.createElement("hr");
+  const ul = document.createElement("ul");
+  for (let responsibility of experience.responsibilities) {
+    const li = document.createElement("li");
     li.innerHTML = responsibility;
     ul.append(li);
   }
@@ -72,26 +76,26 @@ for (experience of data.experience) {
   row.append(well);
   entry.append(row);
   experienceList.append(entry);
-  let hr2 = document.createElement("hr");
+  const hr2 = document.createElement("hr");
   experienceList.append(hr2);
 }
 
 /*-- Education --*/
 const educationList = document.getElementById("education");
 
-for (education of data.education) {
-  let entry = document.createElement("div");
-  let row = document.createElement("div");
-  let well = document.createElement("div");
-  let dates = education.startDate + " - " + education.endDate;
-  let occupation = document.createElement("h1");
+for (let education of data.education) {
+  const entry = document.createElement("div");
+  const row = document.createElement("div");
+  const well = document.createElement("div");
+  const dates = education.startDate + " - " + education.endDate;
+  const occupation = document.createElement("h1");
   occupation.innerHTML = education.degree + "<span class='pull-right'><small><em>" + dates + "</em></small></span>";
-  let school = document.createElement("h2");
+  const school = document.createElement("h2");
   school.innerHTML = education.school;
-  let hr = document.createElement("hr");
-  let ul = document.createElement("ul");
+  const hr = document.createElement("hr");
+  const ul = document.createElement("ul");
   for (accomplishment of education.accomplishments) {
-    let li = document.createElement("li");
+    const li = document.createElement("li");
     li.innerHTML = accomplishment;
     ul.append(li);
   }
@@ -105,6 +109,6 @@ for (education of data.education) {
   row.append(well);
   entry.append(row);
   educationList.append(entry);
-  let hr2 = document.createElement("hr");
+  const hr2 = document.createElement("hr");
   educationList.append(hr2);
 }
