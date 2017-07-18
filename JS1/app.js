@@ -55,10 +55,10 @@ for (let experience of data.experience) {
   const row = document.createElement("div");
   const well = document.createElement("div");
   const dates = experience.startDate + " - " + experience.endDate;
-  const occupation = document.createElement("h1");
-  occupation.innerHTML = experience.occupation + "<span class='pull-right'><small><em>" + dates + "</em></small></span>";
-  const company = document.createElement("h2");
-  company.innerHTML = experience.company;
+  const title = document.createElement("h1");
+  title.innerHTML = experience.title + "<span class='pull-right'><small><em>" + dates + "</em></small></span>";
+  const organization = document.createElement("h2");
+  organization.innerHTML = experience.organization;
   const hr = document.createElement("hr");
   const ul = document.createElement("ul");
   for (let responsibility of experience.responsibilities) {
@@ -69,8 +69,8 @@ for (let experience of data.experience) {
   entry.setAttribute("class", "entry");
   row.setAttribute("class", "row");
   well.setAttribute("class", "well");
-  well.append(occupation);
-  well.append(company);
+  well.append(title);
+  well.append(organization);
   well.append(hr);
   well.append(ul);
   row.append(well);
@@ -88,21 +88,21 @@ for (let education of data.education) {
   const row = document.createElement("div");
   const well = document.createElement("div");
   const dates = education.startDate + " - " + education.endDate;
-  const occupation = document.createElement("h1");
-  occupation.innerHTML = education.degree + "<span class='pull-right'><small><em>" + dates + "</em></small></span>";
+  const title = document.createElement("h1");
+  title.innerHTML = education.title + "<span class='pull-right'><small><em>" + dates + "</em></small></span>";
   const school = document.createElement("h2");
-  school.innerHTML = education.school;
+  school.innerHTML = education.organization;
   const hr = document.createElement("hr");
   const ul = document.createElement("ul");
-  for (accomplishment of education.accomplishments) {
+  for (let responsibilities of education.responsibilities) {
     const li = document.createElement("li");
-    li.innerHTML = accomplishment;
+    li.innerHTML = responsibilities;
     ul.append(li);
   }
   entry.setAttribute("class", "entry");
   row.setAttribute("class", "row");
   well.setAttribute("class", "well");
-  well.append(occupation);
+  well.append(title);
   well.append(school);
   well.append(hr);
   well.append(ul);

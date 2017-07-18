@@ -11,8 +11,8 @@ let data = {
   'skills': ['JavaScript', 'HTML', 'CSS','Node.js', 'Express.js', 'MongoDB',  'Vue.js', 'React.js'],
   'experience': [
     {
-      'occupation': 'Mower of Lawns',
-      'company': 'Brennan\'s Lawns',
+      "title": 'Mower of Lawns',
+      'organization': 'Brennan\'s Lawns',
       'startDate': 2012,
       'endDate': 2017,
       'responsibilities': [
@@ -24,21 +24,21 @@ let data = {
   ],
   'education': [
     {
-      'degree': 'High School Diploma',
-      'school': 'Mountain View High School',
+      "title": 'High School Diploma',
+      "organization": 'Mountain View High School',
       'startDate': 2010,
       'endDate': 2014,
-      'accomplishments': [
+      "responsibilities": [
         'Played on the varsity tennis, hockey, and lacrosse teams',
         'Two time state champion (lacrosse)',
       ]
     },
     {
-      'degree': 'Finance B.B.A.',
-      'school': 'Boise State University',
+      "title": 'Finance B.B.A.',
+      "organization": 'Boise State University',
       'startDate': 2014,
       'endDate': 2018,
-      'accomplishments': [
+      "responsibilities": [
         'Dean\'s List with Honors (Spring 2016)',
         'Dean\'s List with Honors (Fall 2016)',
         'Dean\'s List with Honors (Spring 2017)',

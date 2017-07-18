@@ -10,7 +10,7 @@ var data = {
   'skills': ['Public Speaking', 'Management', 'Selling', 'Mentorship', 'Personal Coaching', 'Song Writing', 'Joke Telling', 'Story Telling', 'Inspiring Others'],
   'experience': [
       {
-          'occupation': 'Regional Manager',
+          "title": 'Regional Manager',
           'company': 'Dunder Mifflin',
           'startDate': 2000,
           'endDate': 2009,
@@ -21,7 +21,7 @@ var data = {
           ]
       },
       {
-          'occupation': 'Salesman',
+          "title": 'Salesman',
           'company': 'Dunder Mifflin',
           'startDate': 1992,
           'endDate': 2000,
@@ -35,11 +35,11 @@ var data = {
 ],
   'education': [
       {
-        'degree': 'High School Diploma',
-        'school': 'Scranton High School',
+        "title": 'High School Diploma',
+        "organization": 'Scranton High School',
         'startDate': 1978,
         'endDate': 1982,
-        'accomplishments': [
+        "responsibilities": [
             'Scored more goals than anyone in the history of the hockey team.',
             'Lost college tuition money in a pyramid scheme.'
         ]
