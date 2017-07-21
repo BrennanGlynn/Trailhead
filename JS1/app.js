@@ -1,3 +1,5 @@
+// TODO make skeleton in html and attach with loop
+
 const summary = document.getElementById("summary");
 summary.setAttribute("style", "background-image: url('" + data.summary.background + "')");
 
@@ -21,19 +23,15 @@ const summaryLocation = document.createElement("h2");
 const summaryPhone = document.createElement("h3");
 const summaryEmail = document.createElement("h3");
 
-const about = document.getElementById("about");
-
 summaryName.appendChild(nameText);
 summaryTitle.appendChild(titleText);
 summaryLocation.appendChild(locationText);
 summaryPhone.appendChild(phoneText);
 summaryEmail.appendChild(emailText);
 
-about.append(summaryName);
-about.append(summaryTitle);
-about.append(summaryLocation);
-about.append(summaryPhone);
-about.append(summaryEmail);
+const about = document.getElementById("about");
+const summaryElements = [summaryName, summaryTitle, summaryLocation, summaryPhone, summaryEmail];
+attachMultiple(about, summaryElements);
 
 /*-- Skills --*/
 const skillsList = document.getElementById("skills-list");
