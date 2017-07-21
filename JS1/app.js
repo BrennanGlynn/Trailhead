@@ -1,37 +1,18 @@
-// TODO make skeleton in html and attach with loop
-
+/*-- Summary --*/
 const summary = document.getElementById("summary");
-summary.setAttribute("style", "background-image: url('" + data.summary.background + "')");
+for (let info in data.summary) {
+    if (info === 'background') {
+        summary.setAttribute("style", "background-image: url('" + data.summary[info] + "')");
+    } else if (info === 'profile') {
+        document.getElementById(info).setAttribute("src", data.summary[info]);
+    } else {
+        const summaryElement = document.getElementById(info);
+        const summaryTextNode = document.createTextNode(data.summary[info]);
+        summaryElement.appendChild(summaryTextNode);
+    }
+}
+/*-- Summary --*/
 
-
-const profileImg = document.createElement("img");
-profileImg.setAttribute("src", data.summary.profile);
-profileImg.setAttribute("class", "img-responsive");
-
-const profile = document.getElementById("profile");
-profile.append(profileImg);
-
-const nameText = document.createTextNode(data.summary.name);
-const titleText = document.createTextNode(data.summary.title);
-const locationText = document.createTextNode(data.summary.location);
-const phoneText = document.createTextNode(data.summary.phone);
-const emailText = document.createTextNode(data.summary.email);
-
-const summaryName = document.createElement("h1");
-const summaryTitle = document.createElement("h2");
-const summaryLocation = document.createElement("h2");
-const summaryPhone = document.createElement("h3");
-const summaryEmail = document.createElement("h3");
-
-summaryName.appendChild(nameText);
-summaryTitle.appendChild(titleText);
-summaryLocation.appendChild(locationText);
-summaryPhone.appendChild(phoneText);
-summaryEmail.appendChild(emailText);
-
-const about = document.getElementById("about");
-const summaryElements = [summaryName, summaryTitle, summaryLocation, summaryPhone, summaryEmail];
-attachMultiple(about, summaryElements);
 
 /*-- Skills --*/
 const skillsList = document.getElementById("skills-list");
