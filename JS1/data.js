@@ -42,7 +42,7 @@ let data = {
         'Dean\'s List with Honors (Spring 2016)',
         'Dean\'s List with Honors (Fall 2016)',
         'Dean\'s List with Honors (Spring 2017)',
-        'Earned a 3.8 without purchasing a single textbook (Spring 2017)',
+        'Earned a 3.8 GPA without purchasing a single textbook (Spring 2017)',
       ]
     }
   ]

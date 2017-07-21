@@ -50,65 +50,51 @@ for (let s in data.skills) {
 /*-- Experience --*/
 const experienceList = document.getElementById("experience");
 
-for (let experience of data.experience) {
-  const entry = document.createElement("div");
-  const row = document.createElement("div");
-  const well = document.createElement("div");
-  const dates = experience.startDate + " - " + experience.endDate;
-  const title = document.createElement("h1");
-  title.innerHTML = experience.title + "<span class='pull-right'><small><em>" + dates + "</em></small></span>";
-  const organization = document.createElement("h2");
-  organization.innerHTML = experience.organization;
-  const hr = document.createElement("hr");
-  const ul = document.createElement("ul");
-  for (let responsibility of experience.responsibilities) {
-    const li = document.createElement("li");
-    li.innerHTML = responsibility;
-    ul.append(li);
-  }
-  entry.setAttribute("class", "entry");
-  row.setAttribute("class", "row");
-  well.setAttribute("class", "well");
-  well.append(title);
-  well.append(organization);
-  well.append(hr);
-  well.append(ul);
-  row.append(well);
-  entry.append(row);
-  experienceList.append(entry);
-  const hr2 = document.createElement("hr");
-  experienceList.append(hr2);
-}
+createCards(data.experience, experienceList);
 
 /*-- Education --*/
 const educationList = document.getElementById("education");
 
-for (let education of data.education) {
-  const entry = document.createElement("div");
-  const row = document.createElement("div");
-  const well = document.createElement("div");
-  const dates = education.startDate + " - " + education.endDate;
-  const title = document.createElement("h1");
-  title.innerHTML = education.title + "<span class='pull-right'><small><em>" + dates + "</em></small></span>";
-  const school = document.createElement("h2");
-  school.innerHTML = education.organization;
-  const hr = document.createElement("hr");
-  const ul = document.createElement("ul");
-  for (let responsibilities of education.responsibilities) {
-    const li = document.createElement("li");
-    li.innerHTML = responsibilities;
-    ul.append(li);
-  }
-  entry.setAttribute("class", "entry");
-  row.setAttribute("class", "row");
-  well.setAttribute("class", "well");
-  well.append(title);
-  well.append(school);
-  well.append(hr);
-  well.append(ul);
-  row.append(well);
-  entry.append(row);
-  educationList.append(entry);
-  const hr2 = document.createElement("hr");
-  educationList.append(hr2);
+createCards(data.education, educationList);
+
+/*-- Functions --*/
+
+function createCards (section, element) {
+    for (x of section) {
+        const entry = document.createElement("div");
+        const row = document.createElement("div");
+        const well = document.createElement("div");
+        const dates = x.startDate + " - " + x.endDate;
+        const title = document.createElement("h1");
+        title.innerHTML = x.title + "<span class='pull-right'><small><em>" + dates + "</em></small></span>";
+        const organization = document.createElement("h2");
+        organization.innerHTML = x.organization;
+        const hr = document.createElement("hr");
+        const ul = document.createElement("ul");
+        const wellElements = [title, organization, hr, ul];
+        createResponsibilities(x.responsibilities, ul);
+        attachMultiple(well, wellElements);
+        entry.setAttribute("class", "entry");
+        row.setAttribute("class", "row");
+        well.setAttribute("class", "well");
+        row.append(well);
+        entry.append(row);
+        element.append(entry);
+        const hr2 = document.createElement("hr");
+        element.append(hr2);
+    }
+}
+
+function createResponsibilities(arr, list) {
+    for (let responsibility of arr) {
+        const li = document.createElement("li");
+        li.innerHTML = responsibility;
+        list.append(li);
+    }
+}
+
+function attachMultiple(parent, children) {
+    for (let child of children) {
+        parent.append(child);
+    }
 }
