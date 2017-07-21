@@ -35,13 +35,13 @@ function activateSkills() {
 /*-- Experience --*/
 function activateExperience() {
     const experienceList = document.getElementById("experience");
-    createCards(data.experience, experienceList);
+    createSections(data.experience, experienceList);
 }
 
 /*-- Education --*/
 function activateEducation() {
     const educationList = document.getElementById("education");
-    createCards(data.education, educationList);
+    createSections(data.education, educationList);
 }
 
 function createSkill(skill) {
@@ -51,16 +51,16 @@ function createSkill(skill) {
     return skillItem;
 }
 
-function createCards (dataSection, parent) {
+function createSections (dataSection, parent) {
     for (let section of dataSection) {
         createEntry(section, parent);
     }
 }
 
 function createEntry(section, parent) {
-    const entry = document.createElement("div");
-    const row = document.createElement("div");
-    const well = document.createElement("div");
+    const entry = styledDivWithParent("entry", parent);
+    const row = styledDivWithParent("row", entry);
+    const well = styledDivWithParent("well", row);
     const dates = section.startDate + " - " + section.endDate;
     const title = document.createElement("h1");
     title.innerHTML = section.title + "<span class='pull-right'><small><em>" + dates + "</em></small></span>";
@@ -71,14 +71,16 @@ function createEntry(section, parent) {
     const wellElements = [title, organization, hr, ul];
     createResponsibilities(section.responsibilities, ul);
     attachMultiple(well, wellElements);
-    entry.setAttribute("class", "entry");
-    row.setAttribute("class", "row");
-    well.setAttribute("class", "well");
-    row.appendChild(well);
-    entry.appendChild(row);
-    parent.appendChild(entry);
     const hr2 = document.createElement("hr");
     parent.appendChild(hr2);
+}
+
+function styledDivWithParent(style, parent) {
+    console.log(parent);
+    const div = document.createElement("div");
+    div.setAttribute("class", style);
+    parent.appendChild(div);
+    return div;
 }
 
 function createResponsibilities(arr, list) {
