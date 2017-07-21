@@ -23,10 +23,9 @@ function activateSummary() {
 function activateSkills() {
     const skillsList = document.getElementById("skills-list");
     for (let s in data.skills) {
-        const skillContainer = document.createElement("li");
-        skillContainer.innerHTML = data.skills[s];
-        skillsList.appendChild(skillContainer);
-        if ((s + 1) % 3 === 0) {
+        const skillElement = createSkill(data.skills[s]);
+        skillsList.appendChild(skillElement);
+        if (needsBreak(s, 3)) {
             const brElem = document.createElement("br");
             skillsList.appendChild(brElem);
         }
@@ -43,6 +42,13 @@ function activateExperience() {
 function activateEducation() {
     const educationList = document.getElementById("education");
     createCards(data.education, educationList);
+}
+
+function createSkill(skill) {
+    const skillItem = document.createElement("li");
+    const skillText = document.createTextNode(skill);
+    skillItem.appendChild(skillText);
+    return skillItem;
 }
 
 function createCards (dataSection, parent) {
@@ -87,4 +93,8 @@ function attachMultiple(parent, children) {
     for (let child of children) {
         parent.appendChild(child);
     }
+}
+
+function needsBreak(index, multiple) {
+    return (index + 1) % multiple === 0;
 }
