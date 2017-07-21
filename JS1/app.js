@@ -1,10 +1,10 @@
-createSummary();
-createSkills();
-createExperience();
-createEducation();
+activateSummary();
+activateSkills();
+activateExperience();
+activateEducation();
 
 /*-- Summary --*/
-function createSummary() {
+function activateSummary() {
     const summary = document.getElementById("summary");
     for (let info in data.summary) {
         if (info === 'background') {
@@ -20,12 +20,12 @@ function createSummary() {
 }
 
 /*-- Skills --*/
-function createSkills() {
+function activateSkills() {
     const skillsList = document.getElementById("skills-list");
     for (let s in data.skills) {
         const skillContainer = document.createElement("li");
         skillContainer.innerHTML = data.skills[s];
-        skillsList.append(skillContainer);
+        skillsList.appendChild(skillContainer);
         if ((s + 1) % 3 === 0) {
             const brElem = document.createElement("br");
             skillsList.appendChild(brElem);
@@ -34,53 +34,57 @@ function createSkills() {
 }
 
 /*-- Experience --*/
-function createExperience() {
+function activateExperience() {
     const experienceList = document.getElementById("experience");
     createCards(data.experience, experienceList);
 }
 
 /*-- Education --*/
-function createEducation() {
+function activateEducation() {
     const educationList = document.getElementById("education");
     createCards(data.education, educationList);
 }
 
-function createCards (section, element) {
-    for (let x of section) {
-        const entry = document.createElement("div");
-        const row = document.createElement("div");
-        const well = document.createElement("div");
-        const dates = x.startDate + " - " + x.endDate;
-        const title = document.createElement("h1");
-        title.innerHTML = x.title + "<span class='pull-right'><small><em>" + dates + "</em></small></span>";
-        const organization = document.createElement("h2");
-        organization.innerHTML = x.organization;
-        const hr = document.createElement("hr");
-        const ul = document.createElement("ul");
-        const wellElements = [title, organization, hr, ul];
-        createResponsibilities(x.responsibilities, ul);
-        attachMultiple(well, wellElements);
-        entry.setAttribute("class", "entry");
-        row.setAttribute("class", "row");
-        well.setAttribute("class", "well");
-        row.append(well);
-        entry.append(row);
-        element.append(entry);
-        const hr2 = document.createElement("hr");
-        element.append(hr2);
+function createCards (dataSection, parent) {
+    for (let section of dataSection) {
+        createEntry(section, parent);
     }
+}
+
+function createEntry(section, parent) {
+    const entry = document.createElement("div");
+    const row = document.createElement("div");
+    const well = document.createElement("div");
+    const dates = section.startDate + " - " + section.endDate;
+    const title = document.createElement("h1");
+    title.innerHTML = section.title + "<span class='pull-right'><small><em>" + dates + "</em></small></span>";
+    const organization = document.createElement("h2");
+    organization.innerHTML = section.organization;
+    const hr = document.createElement("hr");
+    const ul = document.createElement("ul");
+    const wellElements = [title, organization, hr, ul];
+    createResponsibilities(section.responsibilities, ul);
+    attachMultiple(well, wellElements);
+    entry.setAttribute("class", "entry");
+    row.setAttribute("class", "row");
+    well.setAttribute("class", "well");
+    row.appendChild(well);
+    entry.appendChild(row);
+    parent.appendChild(entry);
+    const hr2 = document.createElement("hr");
+    parent.appendChild(hr2);
 }
 
 function createResponsibilities(arr, list) {
     for (let responsibility of arr) {
         const li = document.createElement("li");
         li.innerHTML = responsibility;
-        list.append(li);
+        list.appendChild(li);
     }
 }
 
 function attachMultiple(parent, children) {
     for (let child of children) {
-        parent.append(child);
+        parent.appendChild(child);
     }
 }
