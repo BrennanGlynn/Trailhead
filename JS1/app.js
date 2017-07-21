@@ -52,8 +52,8 @@ function createSkill(skill) {
 }
 
 function createSections (dataSection, parent) {
-    for (let section of dataSection) {
-        createEntry(section, parent);
+    for (let subSection of dataSection) {
+        createEntry(subSection, parent);
     }
 }
 
