@@ -1,0 +1,24 @@
+<html ng-app="app">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<a ui-sref="login">Login</a>
+<a ui-sref="register"> Register</a>
+<div ui-view></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="app.js"></script>
+<script src="app.routes.js"></script>
+<script src="authentication/login.ctrl.js"></script>
+<script src="authentication/register.ctrl.js"></script>
+
+</body>
+</html>
