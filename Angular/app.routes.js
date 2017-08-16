@@ -9,6 +9,11 @@
 
     function config($stateProvider) {
         $stateProvider
+            .state('resume', {
+                url: '/resume',
+                templateUrl: 'resume/resume.tpl.html',
+                controller: 'ResumeCtrl'
+            })
             .state('login', {
                 url: '/login',
                 templateUrl: 'authentication/login.tpl.html',
