@@ -1,22 +1,16 @@
 <!-- Summary -->
-<div class="container-fluid summary" id="summary">
+<div class="container-fluid summary" id="summary" style="background-image: url('{{summary.background}}')">
     <div class="row">
         <div class="col-md-3 col-md-offset-3">
             <img src="https://upload.wikimedia.org/wikipedia/en/d/dc/MichaelScott.png" alt="Profile" class="img-responsive" width="100%">
         </div>
         <div class="col-md-5">
-            <h1>Michael Gary Scott</h1>
+            <h1>{{summary.name}}</h1>
             <hr>
-            <h2>Regional Manager</h2>
-            <h2>Scranton, PA</h2>
-            <h3>
-                <span class="glyphicon glyphicon-phone-alt"></span>
-                (570) 867-5309
-            </h3>
-            <h3>
-                <span class="glyphicon glyphicon-envelope"></span>
-                mscott@dundermifflin.com
-            </h3>
+            <h2>{{summary.title}}</h2>
+            <h2>{{summary.location}}</h2>
+            <h3><span class="glyphicon glyphicon-phone-alt"></span>{{summary.phone}}</h3>
+            <h3><span class="glyphicon glyphicon-envelope"></span>{{summary.email}}</h3>
         </div>
     </div>
 </div>
@@ -29,17 +23,7 @@
     </div>
     <div class="row">
         <ul class="list-inline text-center">
-            <li>Public Speaking</li>
-            <li>Management</li>
-            <li>Selling</li>
-            <br>
-            <li>Mentorship</li>
-            <li>Personal Coaching</li>
-            <li>Song Writing</li>
-            <br>
-            <li>Joke Telling</li>
-            <li>Story Telling</li>
-            <li>Inspiring Others</li>
+            <li ng-repeat="skill in skills">{{skill}}</li>
         </ul>
     </div>
     <hr>
@@ -50,40 +34,14 @@
     <div class="row">
         <h1 class="text-center">Experience</h1>
     </div>
-    <!-- Entry -->
-    <div class="entry">
+    <div class="entry" ng-repeat="job in experience">
         <div class="row">
             <div class="well">
-                <h1>
-                    Regional Manager
-                    <span class="pull-right">
-								<small><em>2000 - 2009</em></small>
-							</span>
-                </h1>
-                <h2>Dunder Mifflin</h2>
+                <h1>{{job.title}}<span class="pull-right"><small><em>{{job.startDate}} - {{job.endDate}}</em></small></span></h1>
+                <h2>{{job.organization}}</h2>
                 <hr>
                 <ul>
-                    <li>Responsible for making the office a place where dreams come true.</li>
-                    <li>Threw the most amazing office parties to improve office morale.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- Entry -->
-    <div class="entry">
-        <div class="row">
-            <div class="well">
-                <h1>
-                    Salesman
-                    <span class="pull-right">
-								<small><em>1992 - 2000</em></small>
-							</span>
-                </h1>
-                <h2>Dunder Mifflin</h2>
-                <hr>
-                <ul>
-                    <li>Won consecutive "Best Salesman of the Year" awards.</li>
-                    <li>Singlehandedly acquired key clients using unorthodox methods.</li>
+                    <li ng-repeat="responsibility in job.responsibilities">{{responsibility}}</li>
                 </ul>
             </div>
         </div>
@@ -96,21 +54,14 @@
     <div class="row">
         <h1 class="text-center">Education</h1>
     </div>
-    <!-- Entry -->
-    <div class="entry">
+    <div class="entry" ng-repeat="school in education">
         <div class="row">
             <div class="well">
-                <h1>
-                    High School Diploma
-                    <span class="pull-right">
-								<small><em>1978-1982</em></small>
-							</span>
-                </h1>
-                <h2>Scranton High School</h2>
+                <h1>{{school.title}}<span class="pull-right"><small><em>{{school.startDate}} - {{school.endDate}}</em></small></span></h1>
+                <h2>{{school.organization}}</h2>
                 <hr>
                 <ul>
-                    <li>Scored more goals than anyone in the history of the hockey team.</li>
-                    <li>Lost college tuition money in a pyramid scheme.</li>
+                    <li ng-repeat="responsibility in school.responsibilities">{{responsibility}}</li>
                 </ul>
             </div>
         </div>
@@ -131,15 +82,15 @@
                     <input type="text" class="form-control" placeholder="First Name">
                 </div>
                 <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user"></span></span>
+                    <span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-user"></span></span>
                     <input type="text" class="form-control" placeholder="Last Name">
                 </div>
                 <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-envelope"></span></span>
+                    <span class="input-group-addon" id="basic-addon3"><span class="glyphicon glyphicon-envelope"></span></span>
                     <input type="email" class="form-control" placeholder="Email">
                 </div>
                 <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-phone-alt"></span></span>
+                    <span class="input-group-addon" id="basic-addon4"><span class="glyphicon glyphicon-phone-alt"></span></span>
                     <input type="text" class="form-control" placeholder="Phone">
                 </div>
             </div>

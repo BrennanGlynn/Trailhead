@@ -35,7 +35,6 @@
     }
 
     function styledDivWithParent(style, parent) {
-        console.log(parent);
         const div = document.createElement("div");
         div.setAttribute("class", style);
         parent.appendChild(div);

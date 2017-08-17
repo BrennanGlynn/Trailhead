@@ -1,13 +1,16 @@
 (function () {
-    'use strict'
+  'use strict'
 
-    angular
-        .module('app')
-        .controller('ResumeCtrl', ResumeCtrl)
+  angular
+  .module('app')
+  .controller('ResumeCtrl', ResumeCtrl)
 
-    ResumeCtrl.$inject = ['$scope', 'ResumeService']
+  ResumeCtrl.$inject = ['$scope', 'ResumeService']
 
-    function ResumeCtrl($scope, ResumeService) {
-        $scope.summary = ResumeService.getSummary()
-    }
+  function ResumeCtrl($scope, ResumeService) {
+    $scope.summary = ResumeService.getSummary()
+    $scope.skills = ResumeService.getSkills()
+    $scope.experience = ResumeService.getExperience()
+    $scope.education = ResumeService.getEducation()
+  }
 })()
