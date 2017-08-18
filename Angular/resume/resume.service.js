@@ -26,7 +26,6 @@
         //////////////////////
 
         function getSummary() {
-            console.log("summary loaded from service")
             return resumeData.summary
         }
 

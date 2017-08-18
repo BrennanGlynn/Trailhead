@@ -9,7 +9,7 @@
 
   function ResumeCtrl($scope, ResumeService) {
     $scope.summary = ResumeService.getSummary()
-    $scope.skills = ResumeService.getSkills()
+    // $scope.skills = ResumeService.getSkills()
     $scope.experience = ResumeService.getExperience()
     $scope.education = ResumeService.getEducation()
   }
