@@ -14,17 +14,17 @@
         activate();
 
         function activate() {
-            $scope.summary.isEditing = false;
-            $scope.summary.edit = editSummary;
-            $scope.summary.save = saveSummary;
+            $scope.isEditing = false;
+            $scope.edit = editSummary;
+            $scope.save = saveSummary;
 
             function editSummary() {
-                $scope.summary.isEditing = true;
+                $scope.isEditing = true;
             }
 
             function saveSummary() {
                 ResumeService.setSummary($scope.summary);
-                $scope.summary.isEditing = false;
+                $scope.isEditing = false;
             }
         }
     }
