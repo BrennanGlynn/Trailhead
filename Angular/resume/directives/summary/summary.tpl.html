@@ -1,11 +1,11 @@
 <!-- Summary -->
 <div class="container-fluid summary" id="summary" style="background-image: url('{{summary.background}}')">
-    <div class="row" ng-hide="isEditing">
+    <div class="row" ng-hide="summary.isEditing">
         <div class="col-md-3 col-md-offset-3">
             <img src="{{summary.profile}}" alt="Profile" class="img-responsive">
         </div>
         <div class="col-md-5">
-            <button ng-click="edit()" class="btn btn-primary pull-right">Edit</button>
+            <button ng-click="summary.edit()" class="btn btn-primary pull-right">Edit</button>
             <h1>{{summary.name}}</h1>
             <hr>
             <h2>{{summary.title}}</h2>
@@ -21,10 +21,10 @@
         </div>
     </div>
 
-    <div class="row" ng-show="isEditing">
+    <div class="row" ng-show="summary.isEditing">
         <div class="col-md-6 col-md-offset-3 edit-summary">
-            <button ng-click="save()" class="btn btn-success pull-right">Save</button>
-            <div class="form-group" ng-repeat="(key, value) in summary">
+            <button ng-click="summary.save()" class="btn btn-success pull-right">Save</button>
+            <div class="form-group" ng-repeat="(key, value) in summary" ng-if="shouldEnumerate(key)">
                 <input type="text" class="form-control" ng-model="summary[key]" placeholder="value">
             </div>
         </div>

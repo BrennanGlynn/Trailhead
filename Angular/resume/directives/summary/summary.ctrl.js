@@ -14,17 +14,23 @@
         activate();
 
         function activate() {
-            $scope.isEditing = false;
-            $scope.edit = editSummary;
-            $scope.save = saveSummary;
+            $scope.summary.isEditing = false;
+            $scope.summary.edit = editSummary;
+            $scope.summary.save = saveSummary;
+            $scope.shouldEnumerate = shouldEnumerate;
 
             function editSummary() {
-                $scope.isEditing = true;
+                $scope.summary.isEditing = true;
             }
 
             function saveSummary() {
                 ResumeService.setSummary($scope.summary);
-                $scope.isEditing = false;
+                $scope.summary.isEditing = false;
+            }
+
+            function shouldEnumerate(key) {
+              let dontEnum = ['edit', 'save', 'isEditing']
+              return dontEnum.indexOf(key) === -1
             }
         }
     }
